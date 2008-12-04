@@ -1,8 +1,9 @@
+<dl>
 <% for attribute in attributes -%>
-<p>
-  <strong><%= attribute.column.human_name %>:</strong><%%=h @<%= singular_name %>.<%= attribute.name %> %>
-</p>
+  <dt><%= attribute.column.human_name %>:</dt>
+  <dd><%%=h @<%= singular_name %>.<%= attribute.name %> %></dd>
 <% end -%>
+</dl>
 
 <%%= link_to 'Edit', edit_object_url %>
 |

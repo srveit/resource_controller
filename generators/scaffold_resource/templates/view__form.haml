@@ -1,5 +1,9 @@
 <%- for attribute in attributes -%>
+<%- if ActionView::Base.default_form_builder.to_s == "WebSgFormBuilder" -%>
+= f.<%= attribute.field_type %> :<%= attribute.name %>, :label => "<%= attribute.column.human_name %>:"
+<%- else -%>
 %p
   %label{:for => "<%= singular_name %>_<%= attribute.name %>"} <%= attribute.column.human_name %>:
   = f.<%= attribute.field_type %> :<%= attribute.name %>
+<%- end -%>
 <% end -%>

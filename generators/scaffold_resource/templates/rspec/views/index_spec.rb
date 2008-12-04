@@ -23,4 +23,3 @@ describe "/<%= table_name %>/index.<%= default_file_extension %>" do
 <% end -%><% end -%>
   end
 end
-

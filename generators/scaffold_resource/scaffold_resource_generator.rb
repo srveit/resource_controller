@@ -89,7 +89,7 @@ class ScaffoldResourceGenerator < Rails::Generator::NamedBase
         rspec_views.each do |action|
           m.template(
             "rspec/views/#{action}_spec.rb",
-            File.join('spec/views', controller_class_path, controller_file_name, "#{action}_spec.rb")
+            File.join('spec/views', controller_class_path, controller_file_name, "#{action}.#{default_file_extension}_spec.rb")
           )
         end
 
@@ -131,11 +131,11 @@ class ScaffoldResourceGenerator < Rails::Generator::NamedBase
     end
 
     def rspec_views
-      %w[ index show new edit ]
+      %w[ index show new edit _form ]
     end
     
     def scaffold_views
-      rspec_views + %w[ _form ]
+      rspec_views
     end
 
     def model_name 
