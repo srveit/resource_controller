@@ -4,6 +4,7 @@
   %dd=h @<%= singular_name %>.<%= attribute.name %>
 <% end -%>
 
-= link_to 'Edit', edit_object_url
-|
-= link_to 'Back', collection_url
+%p
+  = link_to 'Edit', edit_object_url
+  |
+  = link_to 'Back', collection_url
