@@ -2,7 +2,8 @@ require File.expand_path(File.dirname(__FILE__) + '<%= '/..' * controller_class_
 
 describe "/<%= table_name %>/show.<%= default_file_extension %>" do
   include <%= controller_class_name %>Helper
-  
+  include ActionController::UrlWriter
+
   before(:each) do
     @<%= file_name %> = mock_model(<%= class_name %>)
 <% for attribute in attributes -%>
@@ -11,8 +12,8 @@ describe "/<%= table_name %>/show.<%= default_file_extension %>" do
 
     assigns[:<%= file_name %>] = @<%= file_name %>
 
-    template.stub!(:edit_object_url).and_return(edit_<%= file_name %>_path(@<%= file_name %>)) 
-    template.stub!(:collection_url).and_return(<%= file_name.pluralize %>_path) 
+    template.stub!(:edit_object_path).and_return(edit_<%= file_name %>_path(@<%= file_name %>)) 
+    template.stub!(:collection_path).and_return(<%= file_name.pluralize %>_path) 
   end
 
   it "should render attributes in <p>" do

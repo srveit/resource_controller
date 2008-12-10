@@ -1,4 +1,4 @@
-<h1>Listing <%= plural_name.titleize %></h1>
+<h1><%= plural_name.titleize %></h1>
 
 <table>
   <tr>
@@ -11,12 +11,12 @@
     <%- for attribute in attributes -%>
       <td><%%=h <%= singular_name %>.<%= attribute.name %> %></td>
     <%- end -%>    
-      <td><%%=link_to 'Show', object_url(<%= singular_name %>) %></td>
-      <td><%%=link_to 'Edit', edit_object_url(<%= singular_name %>) %></td>
-      <td><%%=link_to 'Destroy', object_url(<%= singular_name %>), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%%=link_to 'Show', object_path(<%= singular_name %>) %></td>
+      <td><%%=link_to 'Edit', edit_object_path(<%= singular_name %>) %></td>
+      <td><%%=link_to 'Destroy', object_path(<%= singular_name %>), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <%% end %>
 </table>
 <br/>
 
-<p><%%= link_to 'New <%= singular_name.titleize %>', new_object_url %></p>
+<p><%%= link_to 'New <%= singular_name.titleize %>', new_object_path %></p>

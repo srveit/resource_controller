@@ -2,13 +2,14 @@ require File.expand_path(File.dirname(__FILE__) + '<%= '/..' * controller_class_
 
 describe "/<%= table_name %>/edit.<%= default_file_extension %>" do
   include <%= controller_class_name %>Helper
-  
+  include ActionController::UrlWriter
+
   before do
     @<%= file_name %> = mock_model(<%= class_name %>)
     assigns[:<%= file_name %>] = @<%= file_name %>
 
-    template.should_receive(:object_url).and_return(<%= file_name %>_path(@<%= file_name %>)) 
-    template.should_receive(:collection_url).and_return(<%= file_name.pluralize %>_path) 
+    template.should_receive(:object_path).and_return(<%= file_name %>_path(@<%= file_name %>)) 
+    template.should_receive(:collection_path).and_return(<%= file_name.pluralize %>_path) 
   end
 
   it "should render edit form" do

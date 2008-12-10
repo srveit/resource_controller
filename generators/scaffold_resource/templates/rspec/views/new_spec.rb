@@ -2,15 +2,16 @@ require File.expand_path(File.dirname(__FILE__) + '<%= '/..' * controller_class_
 
 describe "/<%= table_name %>/new.<%= default_file_extension %>" do
   include <%= controller_class_name %>Helper
-  
+  include ActionController::UrlWriter
+
   before(:each) do
     @<%= file_name %> = mock_model(<%= class_name %>)
     @<%= file_name %>.stub!(:new_record?).and_return(true)
     assigns[:<%= file_name %>] = @<%= file_name %>
 
 
-    template.stub!(:object_url).and_return(<%= file_name %>_path(@<%= file_name %>)) 
-    template.stub!(:collection_url).and_return(<%= file_name.pluralize %>_path) 
+    template.stub!(:object_path).and_return(<%= file_name %>_path(@<%= file_name %>)) 
+    template.stub!(:collection_path).and_return(<%= file_name.pluralize %>_path) 
   end
 
   it "should render new form" do
