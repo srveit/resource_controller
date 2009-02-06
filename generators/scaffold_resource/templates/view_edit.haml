@@ -1,9 +1,11 @@
-%h1 Editing <%= singular_name %>
+- content_for (:title) do
+  = h "Editing <%= singular_name.titleize %>"
 
 = error_messages_for :<%= singular_name %>
 
 - form_for @<%= singular_name %> do |f|
-  = render :partial => "form", :locals => { :f => f }
+  %dl
+    = render :partial => "form", :locals => { :f => f }
   %p= submit_tag "Update"
 
 %p

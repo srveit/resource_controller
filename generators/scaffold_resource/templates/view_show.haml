@@ -1,3 +1,6 @@
+- content_for (:title) do
+  = h "<%= singular_name.titleize %>"
+
 %dl
 <% for attribute in attributes -%>
   %dt <%= attribute.column.human_name %>:

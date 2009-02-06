@@ -1,4 +1,6 @@
-<h1><%= plural_name.titleize %></h1>
+<%% content_for (:title) do %>
+  <%%= h "<%= Plural_name.titleize %>" %>
+<%% end %>
 
 <table>
   <tr>

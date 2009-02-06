@@ -1,4 +1,6 @@
-<h1>Editing <%= singular_name.titleize %></h1>
+<%% content_for (:title) do %>
+  <%%= h "Editing <%= singular_name.titleize %>" %>
+<%% end %>
 
 <%%= error_messages_for :<%= singular_name %> %>
 
