@@ -7,3 +7,4 @@ nbproject/*
 rdoc
 test/db/test.sqlite3
 *~
+.specification
