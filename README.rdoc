@@ -72,6 +72,16 @@ Or you can create a whole new block.  This syntax destroys everything that's the
       wants.js { render :template => "show.rjs" }
     end
   end
+
+If you have a nested resource and want to redirect to the parent after create/update and destroy you can do this in the object controller
+
+ class CommentsController < ResourceController::Base
+    belongs_to :post
+    
+    create.wants.html { redirect_to smart_url(parent_url_options) } 
+    update.wants.html { redirect_to smart_url(parent_url_options) } 
+    destroy.wants.html { redirect_to smart_url(parent_url_options) }
+  end
   
 === Scoping
 
@@ -104,6 +114,12 @@ With actions that can fail, the scoping defaults to success.  That means that cr
 If you want to create a singleton RESTful controller inherit from ResourceController::Singleton.
 
   class AccountsController < ResourceController::Singleton
+  end
+
+...or if need to inherit from some other class:
+
+  class AccountsController < ApplicationController
+    resource_controller :singleton
   end
 
 *Note:* This type of controllers handle a single resource only so the index action and all the collection helpers (collection_url, collection_path...) are not available for them.
